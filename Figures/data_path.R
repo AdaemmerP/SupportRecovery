@@ -1,0 +1,2 @@
+data_path <- "/home/adaemmerp/Dropbox/HSU/Projekte/Mit_Rainer/GLP_SparseDense/Codes_GH/DetectSparsity_Julia_1.9/Figures/Results/"
+save_path <- "/home/adaemmerp/Dropbox/HSU/Projekte/Mit_Rainer/GLP_SparseDense/Paper_Latex/Figures/Figures_Histograms/"
