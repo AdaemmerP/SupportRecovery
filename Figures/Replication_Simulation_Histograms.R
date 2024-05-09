@@ -7,7 +7,7 @@
   source("data_path.R")
 
 # Load data
-  load(paste0(data_path,"Sim_Histograms/Histogram_Macro_n200_DT.RData"))
+  load(paste0(data_path,"Sim_Histograms/Histogram_Finance_n200_DT.RData"))
 
   results_all <- results_all |>
                    mutate(Method = str_replace(Method, "Rel._lasso", "Relaxed~Lasso"))
@@ -66,7 +66,7 @@
 # Make ggplot
   p_sim <- ggplot(results_all_tidy) +
               geom_histogram(aes(x = value),
-                             col = alpha("grey", 0.8), fill = "grey", alpha = .7, bins = 20) + #binwidth = 1) + # bins = 20   (macro)
+                             col = alpha("grey", 0.8), fill = "grey", alpha = .7, binwidth = 1 ) + #) bins = 20  (macro)
               #geom_density(aes(x = value, y = ..density..)) +
               facet_rep_grid(Method ~ name, labeller = label_parsed, scales = "free_y", repeat.tick.labels = T) +
               geom_vline(data = summary_vals, aes(xintercept = value, col = "Estimated number of predictors"),
@@ -97,6 +97,6 @@
 
 
   # Save plot
-   pdf(file =  str_c(save_path, "p_sim_macro_n200.pdf"), width = 8, height = 9, pointsize = 8)
+   pdf(file =  str_c(save_path, "p_sim_finance_n200.pdf"), width = 8, height = 9, pointsize = 8)
    p_sim
    dev.off()
